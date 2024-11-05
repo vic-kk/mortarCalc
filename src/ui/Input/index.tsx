@@ -16,7 +16,7 @@ const Input: FC<TInputProps> = (props) => {
   return (
     <input
       {...props}
-      value={+(props.value ?? 0)}
+      value={props.value ?? ''}
       className='input'
       onChange={onChangeHandler}
     />
