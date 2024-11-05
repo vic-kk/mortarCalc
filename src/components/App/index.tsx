@@ -3,16 +3,18 @@ import './styles.css';
 import { Input } from '../../ui/Input';
 
 function App() {
-  const [ width, setWidth ] = useState(0);
-  const [ height, setHeight ] = useState(0);
+  const [ width, setWidth ] = useState<number>();
+  const [ height, setHeight ] = useState<number>();
+  const [ maxHeight, setMaxHeight ] = useState<number>();
   const [ result, setResult ] = useState(0);
 
-  const widthHandler = (value: number) => {
+  const widthHandler = (value: string | number) => {
     setWidth(+value);
+    setMaxHeight(Math.round(Math.sqrt(700**2 - (+value)**2)));
     calcHandler(+value, height);
   }
 
-  const heightHandler = (value: number) => {
+  const heightHandler = (value: string | number) => {
     setHeight(+value);
     calcHandler(width, +value);
   }
@@ -28,7 +30,7 @@ function App() {
   return (
     <div className='wrap'>
       <div className={`result ${result > 700 && 'warning'}`}>
-        Distance:
+        Target distance:
         <div className='result_calc'>
           <b>
             {result <= 700 ? (
@@ -46,7 +48,7 @@ function App() {
             onChange={(val) => widthHandler(+val)}
             type='number'
             step={10}
-            min={120}
+            min={110}
             max={700}
           />
         </div>
@@ -59,7 +61,9 @@ function App() {
             type='number'
             step={10}
             min={0}
-            max={700}
+            max={maxHeight}
+            disabled={!maxHeight}
+            placeholder={maxHeight ? `max ${maxHeight}`: 'limit'}
           />
         </div>
       </div>

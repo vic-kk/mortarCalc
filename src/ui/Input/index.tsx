@@ -10,13 +10,16 @@ const Input: FC<TInputProps> = (props) => {
     const {
       value: inputValue,
     } = target;
-    props.onChange?.(+inputValue);
+    const a = +inputValue;
+    props.onChange?.(a);
   };
+
+  console.log(props.value);
 
   return (
     <input
       {...props}
-      value={props.value ?? ''}
+      value={props?.value || ''}
       className='input'
       onChange={onChangeHandler}
     />
