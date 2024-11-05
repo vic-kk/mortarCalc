@@ -1,0 +1,9 @@
+.result-teams {
+  display: flex;
+  flex-direction: row;
+  gap: .3rem;
+  width: 55vw;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: flex-start;
+}
