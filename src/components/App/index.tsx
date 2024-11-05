@@ -17,8 +17,8 @@ function App() {
     calcHandler(width, +value);
   }
 
-  const calcHandler = (width?: number, height?: number) => {
-    if (!width || !height || width < 0 || height < 0) {
+  const calcHandler = (width: number = 0, height: number = 0) => {
+    if (width < 0 || height < 0) {
       setResult(0);
       return;
     }
@@ -27,35 +27,43 @@ function App() {
 
   return (
     <div className='wrap'>
-      <div>
-        <span>X meters: </span>
-        <Input
-          value={width}
-          onChange={(val) => widthHandler(+val)}
-          type='number'
-          step={10}
-          min={0}
-          max={700}
-        />
+      <div className={`result ${result > 700 && 'warning'}`}>
+        Distance:
+        <div className='result_calc'>
+          <b>
+            {result <= 700 ? (
+              <>{result} m</>
+              ) : 'Out Of Range'}
+          </b>
+        </div>
       </div>
+      
       <div>
-        <span>Y meters: </span>
-        <Input
-          value={height}
-          onChange={(val) => heightHandler(+val)}
-          type='number'
-          step={10}
-          min={0}
-          max={700}
-        />
+        <div>
+          <span>X meters: </span>
+          <Input
+            value={width}
+            onChange={(val) => widthHandler(+val)}
+            type='number'
+            step={10}
+            min={120}
+            max={700}
+          />
+        </div>
+
+        <div>
+          <span>Y meters: </span>
+          <Input
+            value={height}
+            onChange={(val) => heightHandler(+val)}
+            type='number'
+            step={10}
+            min={0}
+            max={700}
+          />
+        </div>
       </div>
-      <div>
-        <b>
-          {result < 700 ? (
-            <>Distance:  {result}</>
-            ) : 'Out Of Range'}
-        </b>
-      </div>
+      
     </div>
   )
 }
