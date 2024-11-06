@@ -40,7 +40,7 @@ function App() {
         </div>
       </div>
       
-      <div>
+      <div className='range'>
         <div>
           <span>X meters: </span>
           <Input
@@ -52,7 +52,18 @@ function App() {
             max={700}
           />
         </div>
+        <div>
+          <Input
+            value={width || 110}
+            onChange={(val) => widthHandler(+val)}
+            type='range'
+            min={110}
+            max={700}
+          />
+        </div>
+      </div>
 
+      <div className='range'>
         <div>
           <span>Y meters: </span>
           <Input
@@ -60,6 +71,17 @@ function App() {
             onChange={(val) => heightHandler(+val)}
             type='number'
             step={10}
+            min={0}
+            max={maxHeight}
+            disabled={!maxHeight}
+            placeholder={maxHeight ? `max ${maxHeight}`: 'limit'}
+          />
+        </div>
+        <div>
+          <Input
+            value={height || .1}
+            onChange={(val) => heightHandler(+val)}
+            type='range'
             min={0}
             max={maxHeight}
             disabled={!maxHeight}
