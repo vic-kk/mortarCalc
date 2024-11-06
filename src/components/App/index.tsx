@@ -57,6 +57,7 @@ function App() {
             value={width ?? 110}
             onChange={(val) => widthHandler(+val)}
             type='range'
+            step={10}
             min={110}
             max={700}
           />
@@ -82,6 +83,7 @@ function App() {
             value={height ?? .1}
             onChange={(val) => heightHandler(+val)}
             type='range'
+            step={10}
             min={0}
             max={maxHeight}
           />
