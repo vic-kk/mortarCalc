@@ -85,7 +85,7 @@ function App() {
             type='range'
             step={10}
             min={0}
-            max={maxHeight}
+            max={maxHeight || 10}
           />
         </div>
       </div>
