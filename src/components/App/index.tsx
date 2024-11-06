@@ -54,7 +54,7 @@ function App() {
         </div>
         <div>
           <Input
-            value={width || 110}
+            value={width ?? 110}
             onChange={(val) => widthHandler(+val)}
             type='range'
             min={110}
@@ -79,13 +79,11 @@ function App() {
         </div>
         <div>
           <Input
-            value={height || .1}
+            value={height ?? .1}
             onChange={(val) => heightHandler(+val)}
             type='range'
             min={0}
             max={maxHeight}
-            disabled={!maxHeight}
-            placeholder={maxHeight ? `max ${maxHeight}`: 'limit'}
           />
         </div>
       </div>
