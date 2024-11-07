@@ -17,9 +17,10 @@
 body {
   margin: 0;
   display: flex;
-  place-items: center;
-  min-width: 100svw;
-  min-height: 100svh;
+  /* place-items: center; */
+  width: 100vw;
+  min-height: 100dvh;
+  overflow: hidden;
 }
 
 #bg {
@@ -37,7 +38,7 @@ body {
 
 #root {
   margin: 0 auto;
-  padding: 1vw;
+  padding: 4vh 0 1vw;
 }
 
 @media (prefers-color-scheme: light) {

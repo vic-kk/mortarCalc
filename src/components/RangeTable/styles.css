@@ -1,0 +1,27 @@
+.table {
+  display: flex;
+  padding-top: .5rem;
+  font-size: .9rem;
+  
+  .line {
+    /* display: flex; */
+    
+    &:first-child {
+      color: rgba(223, 0, 0, 0.5);
+    }
+    .item:first-child {
+      color: rgba(0, 214, 114, 0.5);
+    }
+  
+    .item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 2.4em;
+      height: 1.3em;
+      border: 1px solid rgba(255,255,255,.25);
+      margin: 0 -1px -1px 0;
+    }
+  }
+}
+

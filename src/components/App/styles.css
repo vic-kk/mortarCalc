@@ -6,13 +6,10 @@
 }
 
 .result {
-  position: relative;
-  margin-right: -20rem;
-
-
   .result_calc {
     color: rgb(0, 189, 0);
     font-size: 2.7rem;
+    margin-right: -20vw;
   }
 
   &.warning {

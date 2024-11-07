@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './styles.css';
 import { Input } from '../../ui/Input';
+import { RangeTable } from '../RangeTable';
 
 function App() {
   const [ width, setWidth ] = useState<number>();
@@ -90,6 +91,8 @@ function App() {
         </div>
       </div>
       
+
+      <RangeTable />
     </div>
   )
 }
