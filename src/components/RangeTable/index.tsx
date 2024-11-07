@@ -19,7 +19,7 @@ const RangeTable:FC = () => (
       {data().map((line, idx) => (
         <div key={idx} className='line'>
           {line.map((item, idx2) => (
-            <div key={idx2} className={`item ${(idx && idx2) ? `item_${Math.floor(item / 50)}` : ''}`}>{item || ''}</div>
+            <div key={idx2} className={`item item_${Math.floor(item / 50)}`}>{item || ''}</div>
           ))}
         </div>
       ))}
