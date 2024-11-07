@@ -23,7 +23,7 @@ const RangeTable:FC = () => (
             <div
               key={idx2}
               className={`item`}
-              style={{color:  `hsl(${item * COLOR_RATIO}, 100%, ${idx2 < idx ? '95%' : '75%'})`}}
+              style={{color:  `hsl(${item * COLOR_RATIO}, 100%, ${idx2 < idx ? '92%' : '75%'})`}}
             >{item || ''}</div>
           ))}
         </div>
