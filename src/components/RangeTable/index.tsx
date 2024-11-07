@@ -14,7 +14,6 @@ const COLOR_RATIO = 1/700*360;
 
 const RangeTable:FC = () => (
   <div>
-    <br />
     <hr />
     <div>Range heatmap:</div>
     <div className='table'>
