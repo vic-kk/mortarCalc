@@ -22,8 +22,8 @@ const RangeTable:FC = () => (
           {line.map((item, idx2) => (
             <div
               key={idx2}
-              className='item'
-              style={{color: `hsl(${item * COLOR_RATIO}, 100%, 80%)`}}
+              className={`item`}
+              style={{color:  `hsl(${item * COLOR_RATIO}, 100%, ${idx2 < idx ? '95%' : '75%'})`}}
             >{item || ''}</div>
           ))}
         </div>

@@ -5,7 +5,7 @@
   
   .line {
     /* display: flex; */
-
+    .forced,
     .item:first-child {
       color: white !important;
     }
