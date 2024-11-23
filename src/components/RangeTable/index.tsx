@@ -1,22 +1,23 @@
 import { FC } from 'react';
 import './styles.css';
 
-const COLOR_RATIO = 1/700*360;
+const MAX_RANGE = 700;
 
 const Data = () => {
   return new Array(10).fill(null).map((_, rowIndex) => 
     new Array(14).fill(null).map((_, colIndex) => {
         const value = Math.round(Math.sqrt( (rowIndex*50)**2 + ((colIndex && colIndex+1)*50)**2 ));
-        return !(value > 700) ? value : 0;
+        return !(value > MAX_RANGE) ? value : 0;
     })
   )
 };
 
 const GetColor = (value: number, colIdx: number, rowIdx: number) => {
   if (!rowIdx || !value) return;
+  const colorRatio = 1/MAX_RANGE*360
 
   return `hsl(
-    ${value * COLOR_RATIO},
+    ${value * colorRatio},
     100%,
     75%,
     ${rowIdx < colIdx-1 ? '.35' : 1}
