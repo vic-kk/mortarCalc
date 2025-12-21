@@ -4,28 +4,28 @@ import { Input } from '../../ui/Input';
 import { RangeTable } from '../RangeTable';
 
 function App() {
-  const [ width, setWidth ] = useState<number>();
-  const [ height, setHeight ] = useState<number>();
-  const [ maxHeight, setMaxHeight ] = useState<number>();
+  const [ xDistanse, setXDistanse ] = useState<number>(0);
+  const [ yDistance, setYDistance ] = useState<number>(0);
+  const [ maxXDistanse, setMaxXDistanse ] = useState<number>(700);
   const [ result, setResult ] = useState(0);
 
-  const widthHandler = (value: string | number) => {
-    setWidth(+value);
-    setMaxHeight(Math.round(Math.sqrt(700**2 - (+value)**2)));
-    calcHandler(+value, height);
+  const XDistanseHandler = (value: string | number) => {
+    setXDistanse(+value);
+    setMaxXDistanse(Math.round(Math.sqrt(700**2 - (+value)**2)));
+    calcHandler(+value, yDistance);
   }
 
-  const heightHandler = (value: string | number) => {
-    setHeight(+value);
-    calcHandler(width, +value);
+  const YDistanseHandler = (value: string | number) => {
+    setYDistance(+value);
+    calcHandler(xDistanse, +value);
   }
 
-  const calcHandler = (width: number = 0, height: number = 0) => {
-    if (width < 0 || height < 0) {
+  const calcHandler = (xDistanse: number = 0, yDistance: number = 0) => {
+    if (xDistanse < 0 || yDistance < 0) {
       setResult(0);
       return;
     }
-    setResult(Math.round(Math.sqrt(width**2 + height**2)))
+    setResult(Math.round(Math.sqrt(xDistanse**2 + yDistance**2)))
   }
 
   return (
@@ -45,18 +45,19 @@ function App() {
         <div>
           <span>X meters: </span>
           <Input
-            value={width}
-            onChange={(val) => widthHandler(+val)}
+            value={xDistanse}
+            onChange={(val) => XDistanseHandler(+val)}
             type='number'
             step={10}
             min={110}
             max={700}
+            placeholder='max 700'
           />
         </div>
         <div>
           <Input
-            value={width ?? 110}
-            onChange={(val) => widthHandler(+val)}
+            value={xDistanse ?? 110}
+            onChange={(val) => XDistanseHandler(+val)}
             type='range'
             step={10}
             min={110}
@@ -69,24 +70,23 @@ function App() {
         <div>
           <span>Y meters: </span>
           <Input
-            value={height}
-            onChange={(val) => heightHandler(+val)}
+            value={yDistance}
+            onChange={(val) => YDistanseHandler(+val)}
             type='number'
             step={10}
             min={0}
-            max={maxHeight}
-            disabled={!maxHeight}
-            placeholder={maxHeight ? `max ${maxHeight}`: 'limit'}
+            max={maxXDistanse}
+            placeholder={maxXDistanse ? `max ${maxXDistanse}`: 'limit'}
           />
         </div>
         <div>
           <Input
-            value={height ?? .1}
-            onChange={(val) => heightHandler(+val)}
+            value={yDistance}
+            onChange={(val) => YDistanseHandler(+val)}
             type='range'
             step={10}
             min={0}
-            max={maxHeight || 10}
+            max={maxXDistanse}
           />
         </div>
       </div>

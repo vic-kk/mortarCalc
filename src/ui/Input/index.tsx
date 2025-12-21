@@ -13,14 +13,25 @@ const Input: FC<TInputProps> = (props) => {
     props.onChange?.(+inputValue);
   };
 
-  return (
+  const INPUT = 
     <input
       {...props}
       value={props?.value || ''}
       className='input'
       onChange={onChangeHandler}
-    />
-  )
+    />;
+
+  if (props.type === 'range') {
+    return (
+      <div className='inputWrap'>
+        {INPUT}
+        <span>{Number(props.min)}</span>
+        <span className='max'>{Number(props.max)}</span>
+      </div>
+    )
+  }
+
+  return INPUT
 }
 
 export { Input, type TInputProps }

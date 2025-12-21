@@ -8,3 +8,18 @@
     margin-top: 1rem;
   }
 }
+
+.inputWrap {
+  position: relative;
+
+  span {
+    position: absolute;
+    font-size: .8rem;
+    bottom: -1.2rem;
+    color: red;
+
+    &.max {
+      right: 0;
+    }
+  }
+}
