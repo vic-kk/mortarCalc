@@ -30,13 +30,11 @@ function App() {
 
   return (
     <div className='wrap'>
-      <div className={`result ${result > 700 && 'warning'}`}>
+      <div className={`result ${result > 700 ? 'warning' : ''}`}>
         Target distance:
         <div className='result_calc'>
           <b>
-            {result <= 700 ? (
-              <>{result} m</>
-              ) : 'Out Of Range'}
+            {result <= 700 ? `${result} m` : 'Out Of Range'}
           </b>
         </div>
       </div>
@@ -56,7 +54,7 @@ function App() {
         </div>
         <div>
           <Input
-            value={xDistanse ?? 110}
+            value={xDistanse}
             onChange={(val) => XDistanseHandler(+val)}
             type='range'
             step={10}
